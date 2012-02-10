@@ -1,0 +1,20 @@
+div.navbar.navbar-fixed-top
+  div.navbar-inner
+    div.container
+      a.brand href="/" Fancyoung
+      ul.nav
+        li class=is_active?("home")
+          = link_to '主页', '/'
+        li class=is_active?("posts")
+          = link_to '帖子', '/posts'
+      ul.nav.pull-right
+        - if user_signed_in?
+          li.dropdown
+            a.dropdown-toggle href="#" data-toggle="dropdown"
+              | a
+              b.caret
+            ul.dropdown-menu
+                li = link_to '设置', '#'
+                li = link_to '退出', destroy_user_session_path, method: 'delete'
+        - else
+          li = link_to '登录', new_user_session_path

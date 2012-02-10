@@ -1,0 +1,22 @@
+= form_for @post do |f|
+  - if @post.errors.any?
+    #error_explanation
+      h2 = "#{pluralize(@post.errors.count, "error")} prohibited this post from being saved:"
+      ul
+        - @post.errors.full_messages.each do |message|
+          li = message
+
+  .field
+    = f.label :title
+    = f.text_field :title
+  .field
+    = f.label :content
+    = f.text_area :content
+  .actions 
+    button.btn.btn-large.btn-primary type='submit'
+      i.icon-ok.icon-white
+      '&nbsp;保存
+    ' 
+    a.btn.btn-large href=posts_path
+      i.icon-remove
+      '&nbsp;取消
