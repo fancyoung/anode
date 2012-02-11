@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/leogalmeida/slim-rails.git
-  revision: 3b2a6b90b418fd6c8fed32e4c1a4548ee6724763
+  revision: e4a8abf2fa80fc348a30bc8989db310d38aa9a07
   specs:
-    slim-rails (1.0.2)
+    slim-rails (1.0.3)
       actionpack (~> 3.0)
       activesupport (~> 3.0)
       railties (~> 3.0)
@@ -126,7 +126,7 @@ GEM
     rake (0.9.2.2)
     rdoc (3.12)
       json (~> 1.4)
-    sass (3.1.14)
+    sass (3.1.15)
     sass-rails (3.2.4)
       railties (~> 3.2.0)
       sass (>= 3.1.10)
