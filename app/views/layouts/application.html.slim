@@ -24,6 +24,7 @@ html
   body
     = render 'layouts/nav'
     .container
+      = render 'layouts/breadcrumb'
       .content
         - flash.each do |name, msg|
           .alert class="alert-#{name.to_s=='alert'?'error':name}" = msg

@@ -1,12 +1,14 @@
-p#notice = notice
-
-p
-  strong Title:
-  = @post.title
-p
-  strong Content:
-  = @post.content
-
-= link_to 'Edit', edit_post_path(@post)
-'|
-= link_to 'Back', posts_path
+.thumbnails
+  .span9
+    .box
+      p#notice = notice
+      section
+        .page-header
+          h1= @post.title
+        div
+          = @post.content
+  .span3
+    .box
+      = link_to 'Edit', edit_post_path(@post)
+      '|
+      = link_to 'Back', posts_path

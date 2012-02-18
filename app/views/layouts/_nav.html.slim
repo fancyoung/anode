@@ -4,17 +4,17 @@ div.navbar.navbar-fixed-top
       a.brand href="/" Fancyoung
       ul.nav
         li class=is_active?("home")
-          = link_to '主页', '/'
+          = link_to '主页', root_path
         li class=is_active?("posts")
-          = link_to '帖子', '/posts'
+          = link_to '讨论区', posts_path
       ul.nav.pull-right
         - if user_signed_in?
           li.dropdown
             a.dropdown-toggle href="#" data-toggle="dropdown"
-              | a
+              = current_user.name
               b.caret
             ul.dropdown-menu
-                li = link_to '设置', '#'
+                li = link_to '设置', edit_user_registration_path
                 li = link_to '退出', destroy_user_session_path, method: 'delete'
         - else
           li = link_to '登录', new_user_session_path
