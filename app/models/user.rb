@@ -8,7 +8,7 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :encryptable
 
-  attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :avatar, :password, :password_confirmation, :remember_me
   
   ## Database authenticatable
   field :name,              :type => String, :null => false, :default => ""
@@ -45,6 +45,8 @@ class User
 
   ## Token authenticatable
   # field :authentication_token, :type => String
+  
+  mount_uploader :avatar, AvatarUploader
 
   validates_presence_of :name,
     message: "请输入用户名"
