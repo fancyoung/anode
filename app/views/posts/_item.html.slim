@@ -1,0 +1,12 @@
+.topic_line
+  .pull-left
+    = image_tag(get_avatar(post.creater, 'medium'))
+  .right-info
+    .title
+      = link_to post.title, post
+    .info
+      | 发表自：
+      = post.creater ? post.creater.name : '-'
+    .info
+      | 发表于：
+      = timeago(post.created_at)

@@ -8,6 +8,7 @@ div.navbar.navbar-fixed-top
         li class=is_active?("posts")
           = link_to '讨论区', posts_path
       ul.nav.pull-right
+        li.divider-vertical
         - if user_signed_in?
           li.dropdown
             a.dropdown-toggle href="#" data-toggle="dropdown"

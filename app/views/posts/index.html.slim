@@ -1,9 +1,9 @@
 .row
   .span9
-    .well.topics
-      - @posts.each do |post|
-        .topic_line
-          = link_to post.title+(post.creater ? post.creater.name : '-'), post
+    .well
+      .page-header
+      .topics
+        = render partial: 'item', collection: @posts, as: :post
   .span3
     .well.center
       a.btn.btn-large.btn-success href=new_post_path 发布新帖
