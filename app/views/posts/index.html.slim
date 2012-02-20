@@ -1,22 +1,9 @@
-h1 Listing posts
-
-table
-  tr
-    th Title
-    th Content
-    th
-    th
-    th
-
-  - @posts.each do |post|
-    tr
-      td = post.title
-      td = post.creater ? post.creater.name : '-'
-      td = post.content
-      td = link_to 'Show', post
-      td = link_to 'Edit', edit_post_path(post)
-      td = link_to 'Destroy', post, :confirm => 'Are you sure?', :method => :delete
-
-br
-
-a.btn.btn-large.btn-success href=new_post_path 发帖
+.row
+  .span9
+    .well.topics
+      - @posts.each do |post|
+        .topic_line
+          = link_to post.title+(post.creater ? post.creater.name : '-'), post
+  .span3
+    .well.center
+      a.btn.btn-large.btn-success href=new_post_path 发布新帖

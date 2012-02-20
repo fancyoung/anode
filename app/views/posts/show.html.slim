@@ -1,6 +1,6 @@
-.thumbnails
+.row
   .span9
-    .box
+    .well
       p#notice = notice
       section
         .page-header
@@ -8,7 +8,7 @@
         div
           = @post.content
   .span3
-    .box
+    .well
       = link_to 'Edit', edit_post_path(@post)
       '|
       = link_to 'Back', posts_path

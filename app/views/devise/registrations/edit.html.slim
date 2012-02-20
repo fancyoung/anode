@@ -3,7 +3,7 @@
     legend 修改账户
     .control-group
       label
-        = image_tag(resource.avatar.url+'-large') if !resource.avatar.url.nil?
+        = image_tag(get_avatar(resource, 'large'))
       .controls
         = f.file_field :avatar
         = f.hidden_field :avatar_cache
