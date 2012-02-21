@@ -1,0 +1,7 @@
+= form_for([@post, @post.comments.build]) do |f|
+  .span7
+    = f.text_area  :content, {rows: 3, class: 'span7'}
+  .span1
+    button.btn.btn-primary type='submit'
+      | 回复
+

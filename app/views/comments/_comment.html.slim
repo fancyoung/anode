@@ -1,0 +1,11 @@
+.topic_line
+  .pull-left
+    = image_tag(get_avatar(comment.creater, 'medium'))
+  .right-info
+    .info
+      = comment.creater.nil?  ? '匿名' : comment.creater.name
+      .pull-right.muted
+        = timeago(comment.created_at)
+    div
+      = comment.content
+    br
