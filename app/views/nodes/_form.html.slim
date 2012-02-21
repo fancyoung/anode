@@ -1,0 +1,9 @@
+.well.nodes
+  = render partial: 'node', collection: @nodes, as: :node
+
+.hero-unit.center
+  = form_for @node||Node.new do |f|
+    .node-box
+      = f.text_field :content, {class: 'span6'}
+      button.btn.btn-primary type='submit'
+        '提交

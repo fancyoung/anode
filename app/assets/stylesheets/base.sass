@@ -31,3 +31,24 @@ body
 
 .avatar
   @include border-radius(6px)
+
+.node-box
+  input
+    height: 36px
+    font-size: 30px
+    margin-bottom: 0
+    border: 3px solid #5a86de
+    border-right: 0
+    @include border-radius(6px 0 0 6px)
+  button
+    height: 50px
+    font-size: 30px
+    @include border-radius(0 6px 6px 0)
+    
+.nodes
+  .node
+    border: 1px solid #999
+    color: #999
+    padding: 4px
+    margin-left: 5px
+    @include border-radius(3px)
