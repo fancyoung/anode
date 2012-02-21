@@ -1,6 +1,6 @@
 .topic_line
   .pull-left
-    = image_tag(get_avatar(post.creater, 'medium'))
+    = image_tag get_avatar(post.creater, 'medium'), {class: 'avatar'}
   .right-info
     .title
       = link_to post.title, post

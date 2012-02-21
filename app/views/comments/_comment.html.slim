@@ -1,6 +1,6 @@
 .topic_line
   .pull-left
-    = image_tag(get_avatar(comment.creater, 'medium'))
+    = image_tag get_avatar(comment.creater, 'medium'), {class: 'avatar'}
   .right-info
     .info
       = comment.creater.nil?  ? '匿名' : comment.creater.name
