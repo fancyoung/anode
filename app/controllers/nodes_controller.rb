@@ -3,8 +3,9 @@ class NodesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index]
 
   def index
-    @nodes = Node.all
-
+    if current_user
+      @nodes = Node.latest(current_user)
+    end
     respond_to do |format|
       format.html
       format.json { render json: @nodes }
