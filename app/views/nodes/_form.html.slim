@@ -1,5 +1,5 @@
-= form_for @node||Node.new do |f|
+= form_for @node||Node.new, remote: true, html: {id: 'node_form'} do |f|
   .node-box
-    = f.text_field :content, {class: 'span4'}
+    = f.text_field :content, {class: 'span6'}
     button.btn.btn-primary type='submit'
       '提交

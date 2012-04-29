@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 class NodesController < ApplicationController
-  before_filter :authenticate_user!, :except => [:index]
+  before_filter :authenticate_user!, :except => [:index, :show]
 
   def index
     if current_user
@@ -21,14 +21,22 @@ class NodesController < ApplicationController
 
     respond_to do |format|
       if @node.save
-        flash[:success] = '发布成功:)'
-        format.html { redirect_to nodes_path}
+        # flash[:success] = '发布成功:)'
+        format.html { render partial: 'nodes/node', object: @node }
         format.json { render json: @node, status: :created, location: @node }
       else
-        flash[:error] = @node.errors.values.first.first
-        format.html { redirect_to nodes_path}
+        # flash[:error] = @node.errors.values.first.first
+        format.html { render partial: 'nodes/node', object: @node } #bug: fix it later
         format.json { render json: @node.errors.first.first, status: 'error' }
       end
+    end
+  end
+
+  def show
+    @node = Node.find(params[:id])
+    respond_to do |format|
+      format.html { render 'show', layout: false }
+      format.json { render json: @node }
     end
   end
 end

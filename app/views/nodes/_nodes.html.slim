@@ -1,5 +1,7 @@
-.nodes
-  - for node in nodes do 
-    span.node
-      a href="#"
-        = node.content
+#nodes.nodes
+  = render partial: 'node', collection: nodes, as: :node
+javascript:
+  $('.nodes').on('click', '.node a', function(){
+    $('.node_info').load($(this).attr('href'))
+    return false
+  });
