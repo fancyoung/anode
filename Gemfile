@@ -13,7 +13,7 @@ gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
 # upyun
 gem 'rest-client'
-gem 'carrierwave-upyun', :require => 'carrierwave/upyun'
+gem 'carrierwave-upyun'
 
 # Gems used only for assets and not required
 # in production environments by default.
