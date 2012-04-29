@@ -50,8 +50,24 @@ body
   @include border-radius(6px)
   .node
     display: block
-    border-top: 1px solid $blue
+    border-top: 1px solid #ddd
     color: $blue
-    padding: 12px
     &:first-child
       border-top: none
+    &:hover
+      background-color: #f5f5f5
+    a
+      display: block
+      padding: 12px
+      text-decoration: none
+      text-align: right
+.node_info
+  height: 300px
+
+.footer
+  margin-top: 45px
+  padding: 35px 0 36px
+  border-top: 1px solid #E5E5E5
+  p
+  margin-bottom: 0
+  color: #555

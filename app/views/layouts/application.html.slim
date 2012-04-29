@@ -1,8 +1,8 @@
 doctype 5
 html
   head
-    title Compass Twitter Bootstrap Demo
-    meta name="keywords" content="template language"
+    title IAIEYE
+    meta name="keywords" content="note it"
 
     = stylesheet_link_tag "application"
     = javascript_include_tag "application"
@@ -26,3 +26,4 @@ html
         - flash.each do |name, msg|
           .alert class="alert-#{name.to_s=='alert'?'error':name}" = msg
         == yield
+    = render 'layouts/footer'
