@@ -1,4 +1,6 @@
-= render 'form'
-
-.well.nodes
-  = render partial: 'node', collection: @nodes, as: :node
+.row
+  .span6
+    = render_nodes @nodes
+  .span6
+    .box
+      = render 'nodes/form'

@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Node
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -8,4 +9,7 @@ class Node
   referenced_in :updater, :class_name => 'User'
 
   scope :latest, ->(user) { where(creater_id: user.id).desc(:created_at) }
+  scope :latest_all, desc(:created_at)
+
+  validates_presence_of :content, message: '写点东西吧'
 end

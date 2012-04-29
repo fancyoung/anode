@@ -5,6 +5,8 @@ class NodesController < ApplicationController
   def index
     if current_user
       @nodes = Node.latest(current_user)
+    else
+      @nodes = Node.latest_all
     end
     respond_to do |format|
       format.html
@@ -19,11 +21,13 @@ class NodesController < ApplicationController
 
     respond_to do |format|
       if @node.save
-        format.html { redirect_to nodes_path, notice: '发布成功:)' }
+        flash[:success] = '发布成功:)'
+        format.html { redirect_to nodes_path}
         format.json { render json: @node, status: :created, location: @node }
       else
-        format.html { render action: "index" }
-        format.json { render json: @node.errors, status: :unprocessable_entity }
+        flash[:error] = @node.errors.values.first.first
+        format.html { redirect_to nodes_path}
+        format.json { render json: @node.errors.first.first, status: 'error' }
       end
     end
   end

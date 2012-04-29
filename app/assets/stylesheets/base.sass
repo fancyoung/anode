@@ -46,9 +46,12 @@ body
     @include border-radius(0 6px 6px 0)
     
 .nodes
+  background: white
+  @include border-radius(6px)
   .node
-    border: 1px solid #999
-    color: #999
-    padding: 4px
-    margin-left: 5px
-    @include border-radius(3px)
+    display: block
+    border-top: 1px solid $blue
+    color: $blue
+    padding: 12px
+    &:first-child
+      border-top: none
