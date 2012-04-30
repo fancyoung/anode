@@ -1,3 +1,9 @@
-span.node
-  a href=node_path(node.id)
-    = node.content
+.node
+  .row
+    .node_op
+      - if node.type == 'link'
+        a href=node.content title='打开链接' target='_blank'
+          i.icon-share-alt
+    .node_content
+      a.node_tar href=node_path(node.id)
+        = node.content

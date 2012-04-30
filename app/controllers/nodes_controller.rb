@@ -17,7 +17,14 @@ class NodesController < ApplicationController
   def create
     params[:node][:creater_id] = current_user.id
     params[:node][:updater_id] = current_user.id
-    @node = Node.new(params[:node])
+    content = params[:node][:content].strip
+    begin
+      url = URI.parse content
+      params[:node][:title] = 'aaa'
+      @node = Link.new(params[:node])
+    rescue Exception => e
+      @node = Node.new(params[:node])
+    end
 
     respond_to do |format|
       if @node.save

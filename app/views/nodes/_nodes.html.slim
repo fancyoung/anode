@@ -1,7 +1,7 @@
 #nodes.nodes
   = render partial: 'node', collection: nodes, as: :node
 javascript:
-  $('.nodes').on('click', '.node a', function(){
+  $('.nodes').on('click', '.node .node_tar', function(){
     $('.node_info').load($(this).attr('href'))
     return false
   });
