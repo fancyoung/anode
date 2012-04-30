@@ -1,7 +1,11 @@
-.page-header
-  h1 = @node.content
-.btn-group
-  a.btn href="http://www.google.com/search?q=#{u @node.content}" target='_blank' title='在Google中查找'
-    | Google
-  a.btn href="http://www.bing.com/search?q=#{u @node.content}" target='_blank' title='在Bing中查找'
-    | Bing
+.page-header.row
+  h1.pull-left = @node[:title] || @node.content
+  .pull-right
+    .btn-group
+      a.btn href="http://www.google.com/search?q=#{u @node.content}" target='_blank' title='在Google中查找'
+        | Google
+      a.btn href="http://www.bing.com/search?q=#{u @node.content}" target='_blank' title='在Bing中查找'
+        | Bing
+      - if @node.type == 'link'
+        a.btn href=@node.content title='打开链接' target='_blank'
+          i.icon-share-alt

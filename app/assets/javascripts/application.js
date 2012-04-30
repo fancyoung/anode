@@ -29,6 +29,13 @@ $(function(){
       c.attr('value', '').removeAttr("disabled")
       $(this).find('[type=submit]').removeClass('disabled')
     }
+    ,'ajax:error': function(){
+      alert('提交失败')
+      var c = $(this).find('[name="node[content]"]')
+      $(this).removeAttr("disabled")
+      c.removeAttr("disabled")
+      $(this).find('[type=submit]').removeClass('disabled')
+    }
   })
   $('[name="node[content]"]') && $('[name="node[content]"]').focus()
 })

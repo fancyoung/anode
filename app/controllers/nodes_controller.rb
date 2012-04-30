@@ -1,4 +1,6 @@
 # -*- coding: utf-8 -*-
+require 'open-uri'
+
 class NodesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
 
@@ -20,10 +22,13 @@ class NodesController < ApplicationController
     content = params[:node][:content].strip
     begin
       url = URI.parse content
-      params[:node][:title] = 'aaa'
-      @node = Link.new(params[:node])
+      if url.host
+        @node = Link.new(params[:node])
+      else
+        @node = Node.new(params[:node])
+      end
     rescue Exception => e
-      @node = Node.new(params[:node])
+        @node = Node.new(params[:node])
     end
 
     respond_to do |format|
