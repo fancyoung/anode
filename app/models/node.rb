@@ -1,4 +1,8 @@
 # -*- coding: utf-8 -*-
+require 'nokogiri'
+require 'open-uri'
+require 'timeout'
+
 class Node
   include Mongoid::Document
   include Mongoid::Timestamps
@@ -21,18 +25,30 @@ class Node
 
   class << self
     def build_node(node)
+      node_i = nil
       node[:content].strip!
       begin
         url = URI.parse node[:content]
-        if url.host
-          n = Link.new(node)
-        else
-          n = Node.new(node)
+        if url.host && url.scheme =~ /^https?$/
+          timeout(20) do
+            doc = Nokogiri::HTML(open(url))
+            node[:title] = doc.css('title').first.content
+            node_i = Link.new(node)
+          end
         end
-      rescue Exception => e
-          n = Node.new(node)
+      rescue OpenURI::HTTPError
+        error = '无法打开页面'
+      rescue Timeout::Error
+        error = '获取链接信息超时'
+      rescue BSON::InvalidStringEncoding
+        error = '无法解析页面'
+      rescue Exception
+        error = '无法解析页面'
+      ensure
+        node_i = Node.new(node) if node_i.nil?
+        node_i.errors.add :content, error unless error.nil?
       end
-      n
+      node_i
     end
   end
 end
