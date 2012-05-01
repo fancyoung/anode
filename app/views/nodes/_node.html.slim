@@ -4,6 +4,12 @@
       - if node.type == 'link'
         a href=node.content title='打开链接' target='_blank'
           i.icon-share-alt
+      - elsif node.type == 'video'
+        a href=node.content title='打开链接' target='_blank'
+          i.icon-film
+      - elsif node.type == 'picture'
+        a href=node.content title='打开链接' target='_blank'
+          i.icon-picture
       - if node.errors && node.errors.first
         .label.label-important = node.errors.values.first.first
     .node_content

@@ -31,9 +31,19 @@ class Node
         url = URI.parse node[:content]
         if url.host && url.scheme =~ /^https?$/
           timeout(20) do
-            doc = Nokogiri::HTML(open(url))
-            node[:title] = doc.css('title').first.content
-            node_i = Link.new(node)
+            url_source = open(url)
+            content_type = url_source.content_type
+            puts '>>>>>>'+content_type
+            if content_type =~ /^image/ #photo
+              node_i = Picture.new(node)
+            elsif content_type == 'application/x-shockwave-flash' # video
+              node[:url] = url.to_s
+              node_i = Video.new(node)
+            elsif content_type == 'text/html' # link
+              doc = Nokogiri::HTML(url_source)
+              node[:title] = doc.css('title').first.content
+              node_i = Link.new(node)
+            end
           end
         end
       rescue OpenURI::HTTPError
