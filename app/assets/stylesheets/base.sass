@@ -16,9 +16,7 @@ body
   padding: 10px
   margin: 0 0 20px 0
   @include border-radius(6px)
-  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,0.15)
-  -moz-box-shadow: 0 1px 2px rgba(0,0,0,0.15)
-  box-shadow: 0 1px 2px rgba(0,0,0,0.15)
+  @include box-shadow(0 1px 2px rgba(0,0,0,0.15))
 
 .topics .topic_line
   border-bottom: 1px solid #DDD
@@ -47,7 +45,8 @@ body
     
 .nodes
   background: white
-  @include border-radius(6px)
+  @include border-radius(0 0 6px 6px)
+  margin-top: -20px
   .node
     border-top: 1px solid #ddd
     color: $blue
@@ -71,8 +70,22 @@ body
       text-decoration: none
       text-align: right
       padding: 12px 0
+.node_form
+  position: fixed
+  background-color: white
+  margin-top: -20px
+  padding: 20px
+  width: 730px
+  @include border-radius(0 0 6px 6px)
+  @include box-shadow(0 1px 2px rgba(0,0,0,0.15))
+  form
+    margin-bottom: 0
 .node_info
+  @extend .box
+  position: fixed
+  margin-top: 100px
   height: 300px
+  width: 750px
   .page-header.row
     margin-left: 0
     h1
