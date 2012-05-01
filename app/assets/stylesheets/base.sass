@@ -1,15 +1,18 @@
 @import compass
 $baseFontSize: 15px
 @import compass_twitter_bootstrap
+body
+  padding-top: 60px
 @import compass_twitter_bootstrap_responsive
+@import utils
 
 .center
   text-align: center
 
 body
   padding-bottom: 40px
-  padding-top: 60px
   background: url(bg.gif)
+  background-attachment: fixed
 
 .box
   background-color: white
@@ -44,16 +47,17 @@ body
     @include border-radius(0 6px 6px 0)
     
 .nodes
-  background: white
+  @extend .alpha80
   @include border-radius(0 0 6px 6px)
   margin-top: -20px
   .node
-    border-top: 1px solid #ddd
-    color: $blue
+    border-top: 1px solid $blue
     &:first-child
       border-top: none
     &:hover
-      background-color: #f5f5f5
+      background-color: white
+    a
+      color: $gray
     .row
       margin-left: 0
       padding: 0 12px
@@ -71,8 +75,8 @@ body
       text-align: right
       padding: 12px 0
 .node_form
+  @extend .alpha80
   position: fixed
-  background-color: white
   margin-top: -20px
   padding: 20px
   width: 730px
@@ -81,7 +85,11 @@ body
   form
     margin-bottom: 0
 .node_info
-  @extend .box
+  padding: 10px
+  margin: 0 0 20px 0
+  @include border-radius(6px)
+  @include box-shadow(0 1px 2px rgba(0,0,0,0.15))
+  @extend .alpha80
   position: fixed
   margin-top: 100px
   height: 300px

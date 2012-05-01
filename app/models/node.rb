@@ -33,14 +33,15 @@ class Node
           timeout(20) do
             url_source = open(url)
             content_type = url_source.content_type
-            # puts '>>>>>>'+content_type
+            puts '>>>>>>'+content_type
             if content_type =~ /^image/ #photo
+              node[:title] = file_name url
               node_i = Picture.new(node)
             elsif content_type == 'application/x-shockwave-flash' # video
               node[:url] = url.to_s
               node_i = Video.new(node)
             elsif ['text/plain', 'text/css', 'application/x-javascript'].include? content_type # text
-              node[:title] = url.path.scan(/[^\/]+\/*$/).first
+              node[:title] = file_name url
               node_i = Text.new(node)
             elsif content_type == 'text/html' # link || video
               doc = Nokogiri::HTML(url_source)
@@ -69,6 +70,10 @@ class Node
         return embed.attributes["src"].value
       end
       code
+    end
+    
+    def file_name(url)
+      url.path.scan(/[^\/]+\/*$/).first
     end
   end
 end
