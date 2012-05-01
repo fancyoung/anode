@@ -19,17 +19,7 @@ class NodesController < ApplicationController
   def create
     params[:node][:creater_id] = current_user.id
     params[:node][:updater_id] = current_user.id
-    content = params[:node][:content].strip
-    begin
-      url = URI.parse content
-      if url.host
-        @node = Link.new(params[:node])
-      else
-        @node = Node.new(params[:node])
-      end
-    rescue Exception => e
-        @node = Node.new(params[:node])
-    end
+    @node = Node.build_node params[:node]
 
     respond_to do |format|
       if @node.save

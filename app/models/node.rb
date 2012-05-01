@@ -18,4 +18,21 @@ class Node
   def type
     self._type && self._type.downcase
   end
+
+  class << self
+    def build_node(node)
+      node[:content].strip!
+      begin
+        url = URI.parse node[:content]
+        if url.host
+          n = Link.new(node)
+        else
+          n = Node.new(node)
+        end
+      rescue Exception => e
+          n = Node.new(node)
+      end
+      n
+    end
+  end
 end
