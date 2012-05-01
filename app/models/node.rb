@@ -39,10 +39,10 @@ class Node
             elsif content_type == 'application/x-shockwave-flash' # video
               node[:url] = url.to_s
               node_i = Video.new(node)
-            elsif content_type == 'text/plain' # link&file
+            elsif ['text/plain', 'text/css', 'application/x-javascript'].include? content_type # text
               node[:title] = url.path.scan(/[^\/]+\/*$/).first
-              node_i = Link.new(node)
-            elsif content_type == 'text/html' # link
+              node_i = Text.new(node)
+            elsif content_type == 'text/html' # link || video
               doc = Nokogiri::HTML(url_source)
               node[:title] = doc.css('title').first.content
               node_i = Link.new(node)

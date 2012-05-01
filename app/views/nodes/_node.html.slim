@@ -7,6 +7,9 @@
       - elsif node.type == 'video'
         a href=node.content title='打开链接' target='_blank'
           i.icon-film
+      - elsif node.type == 'text'
+        a href=node.content title='打开链接' target='_blank'
+          i.icon-file
       - elsif node.type == 'picture'
         a href=node.content title='打开链接' target='_blank'
           i.icon-picture
