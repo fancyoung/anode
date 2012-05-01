@@ -28,12 +28,12 @@ class Node
       node_i = nil
       node[:content].strip!
       begin
-        url = URI.parse node[:content]
+        url = URI.parse html(node[:content])
         if url.host && url.scheme =~ /^https?$/
           timeout(20) do
             url_source = open(url)
             content_type = url_source.content_type
-            puts '>>>>>>'+content_type
+            # puts '>>>>>>'+content_type
             if content_type =~ /^image/ #photo
               node_i = Picture.new(node)
             elsif content_type == 'application/x-shockwave-flash' # video
@@ -62,6 +62,13 @@ class Node
         node_i.errors.add :content, error unless error.nil?
       end
       node_i
+    end
+
+    def html(code)
+      Nokogiri::HTML.parse(code).xpath('//embed').each do |embed|
+        return embed.attributes["src"].value
+      end
+      code
     end
   end
 end

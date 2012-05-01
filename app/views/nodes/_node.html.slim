@@ -17,4 +17,4 @@
         .label.label-important = node.errors.values.first.first
     .node_content
       a.node_tar href=node_path(node.id)
-        = node[:title] || node.content
+        = node[:title] || node[:url] || node.content
