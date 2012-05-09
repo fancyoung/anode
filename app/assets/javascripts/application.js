@@ -72,7 +72,7 @@ var fly = (function(){
 
       box_to = el_to.clone().insertBefore(el_to)
       box_to.find('.node_content a').html('&nbsp;')
-      box_to.find('.node_op').html('loading')
+      box_to.find('.node_op').html('提交中')
       box_to.animate({'height': 'toggle'}, 0)
       box_to.animate({'height': 'toggle'})
       
