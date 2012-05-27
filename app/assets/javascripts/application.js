@@ -33,8 +33,10 @@ $(function(){
 
       fly.end(el)
     }
-    ,'ajax:error': function(){
-      alert('提交失败')
+    ,'ajax:error': function(event, xhr, status) {
+      fly.clear(function(){
+        alert('提交失败，'+xhr.responseText)
+      })
       var c = $(this).find('[name="node[content]"]')
       $(this).removeAttr("disabled")
       c.removeAttr("disabled")
@@ -86,6 +88,15 @@ var fly = (function(){
           $(this).remove()
         })
         el.animate({opacity: 100})
+        $(this).remove()
+      })
+    }
+    ,clear: function(callback){
+      cp.fadeOut(function(){
+        $(this).remove()
+      })
+      box_to.fadeOut(function(){
+        callback()
         $(this).remove()
       })
     }
