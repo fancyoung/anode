@@ -66,6 +66,7 @@ var fly = (function(){
       cp.css('text-align', new_el.css('text-align'))
       cp.animate($.extend(new_el.offset(), {
         'font-size': new_el.css('font-size')
+        ,'color': new_el.css('color')
         ,'width': new_el.css('width')
         ,'padding': new_el.css('padding')
       }), 500)
