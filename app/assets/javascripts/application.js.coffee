@@ -8,7 +8,17 @@
 # = require jquery_ujs
 # = require bootstrap-modal
 # = require bootstrap-dropdown
-# = require_tree .
+#
+# for backbone
+# = require underscore
+# = require backbone
+# = require .//anode
+# = require_tree ../templates/
+# = require_tree .//models
+# = require_tree .//collections
+# = require_tree .//views
+# = require_tree .//routers
+
 
 $ ->
   $('#node_form').on

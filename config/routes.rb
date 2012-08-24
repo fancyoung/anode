@@ -1,4 +1,9 @@
 Anode::Application.routes.draw do
+
+  scope "api" do
+    resources :todos
+  end
+
   devise_for :users
 
   resources :posts do

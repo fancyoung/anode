@@ -1,0 +1,6 @@
+<form id="new_todo">
+   <input type="text" name="content" id="new_todo_content" />
+   <input type="submit" value="添加" />
+</form>
+<ul id="todos">
+</ul>
