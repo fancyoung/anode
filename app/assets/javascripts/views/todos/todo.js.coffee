@@ -4,6 +4,9 @@ class Anode.Views.Todo extends Backbone.View
 
   events:
     'click input[type=checkbox]': 'toggleDone'
+    'click .destroy': 'destroy'
+    'mouseenter': 'showBtn'
+    'mouseleave': 'hideBtn'
 
   initialize: ->
     @model.on('change', @render, this)  
@@ -14,3 +17,15 @@ class Anode.Views.Todo extends Backbone.View
 
   toggleDone: (event) ->
     @model.toggle()
+
+  showBtn: ->
+    $(@el).find('.destroy').show()
+
+  hideBtn: ->
+    $(@el).find('.destroy').hide()
+
+  destroy: (event) ->
+    event.preventDefault()
+    @model.destroy
+      success: ->
+        console.log('ss')

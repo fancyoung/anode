@@ -107,3 +107,31 @@ body
   p
   margin-bottom: 0
   color: #555
+
+#todos
+  background: white
+  padding: 20px
+  margin-bottom: 40px
+  @include border-radius(0 0 6px 6px)
+  @include box-shadow(0 2px 6px 0 rgba(0, 0, 0, 0.2))
+  input
+    font-size: 24px
+    height: auto
+    line-height: 1.4em
+    padding: 6px
+    &[type=text]
+      @extend .span5
+    &[type=submit]
+      @extend .span1
+  ul#todo_list
+    margin: 10px 0    
+    padding: 0        
+    list-style: none  
+    li
+      padding: 18px 20px 18px 0
+      position: relative
+      font-size: 24px
+      border-bottom: 1px solid #CCC
+      .destroy
+        @extend .close
+        display: none

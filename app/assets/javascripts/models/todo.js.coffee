@@ -1,5 +1,5 @@
 class Anode.Models.Todo extends Backbone.Model
   idAttribute: '_id'
 
-  toggle: () ->
+  toggle: ->
     @save({done: !@get('done')})

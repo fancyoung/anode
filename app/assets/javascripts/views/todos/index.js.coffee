@@ -16,7 +16,7 @@ class Anode.Views.TodosIndex extends Backbone.View
 
   prependTodo: (todo) ->
     view = new Anode.Views.Todo(model: todo)
-    $('#todos').prepend(view.render().el)
+    $('#todo_list').prepend(view.render().el)
 
   createTodo: (event) ->
     event.preventDefault()

@@ -1,6 +1,8 @@
-<form id="new_todo">
-   <input type="text" name="content" id="new_todo_content" />
-   <input type="submit" value="添加" />
-</form>
-<ul id="todos">
-</ul>
+<div id="todos" class="span6 offset3">
+  <form id="new_todo">
+     <input type="text" name="content" id="new_todo_content" placeholder="我要。。。" />
+     <input type="submit" value="+" />
+  </form>
+  <ul id="todo_list">
+  </ul>
+</div>
