@@ -1,6 +1,5 @@
 class Anode.Models.Todo extends Backbone.Model
+  idAttribute: '_id'
 
-  toggle: ->
-    @set(done: true)
-    @save
-    @trigger('highlight')
+  toggle: () ->
+    @save({done: !@get('done')})

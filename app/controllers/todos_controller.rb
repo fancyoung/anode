@@ -16,9 +16,9 @@ class TodosController < ApplicationController
   end
 
   def update
-    params[:todo][:creater_id] = current_user.id
+    @todo = Todo.find(params[:id])
     params[:todo][:updater_id] = current_user.id
-    respond_with Todo.update(params[:id], params[:todo])
+    respond_with @todo.update_attributes(params[:todo])
   end
   
   def destroy

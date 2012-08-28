@@ -7,14 +7,14 @@ class Anode.Views.TodosIndex extends Backbone.View
 
   initialize: ->
     @collection.on('reset', @render, this)
-    @collection.on('add', @appendTodo, this)
+    @collection.on('add', @prependTodo, this)
 
   render: ->
     $(@el).html(@template())
-    @collection.each(@appendTodo, this)
+    @collection.each(@prependTodo, this)
     this
 
-  appendTodo: (todo) ->
+  prependTodo: (todo) ->
     view = new Anode.Views.Todo(model: todo)
     $('#todos').prepend(view.render().el)
 
@@ -26,6 +26,7 @@ class Anode.Views.TodosIndex extends Backbone.View
       success: -> 
         $('#new_todo')[0].reset()
       error: @handleError
+
   handleError: (todo, response) ->
     if response.status == 422
       errors = $.parseJSON(response.responseText).errors

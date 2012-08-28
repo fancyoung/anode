@@ -1,2 +1,2 @@
-<input type="checkbox" />
+<input type="checkbox"<%= @todo.get('done') && ('checked="checked"')  %> />
 <%= @todo.get('content') %>
