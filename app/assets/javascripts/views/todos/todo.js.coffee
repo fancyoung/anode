@@ -9,7 +9,8 @@ class Anode.Views.Todo extends Backbone.View
     'mouseleave': 'hideBtn'
 
   initialize: ->
-    @model.on('change', @render, this)  
+    @model.on('change', @render, this)
+    @model.on('destroy', @remove, this)
   
   render: ->
     $(@el).html(@template(todo: @model))
