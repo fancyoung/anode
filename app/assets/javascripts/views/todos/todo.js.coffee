@@ -7,6 +7,9 @@ class Anode.Views.Todo extends Backbone.View
     'click .destroy': 'destroy'
     'mouseenter': 'showBtn'
     'mouseleave': 'hideBtn'
+    'dblclick .view': 'edit'
+    'blur .edit': 'doEdit'
+    'keypress .edit': 'updateOnEnter'
 
   initialize: ->
     @model.on('change', @render, this)
@@ -14,6 +17,7 @@ class Anode.Views.Todo extends Backbone.View
   
   render: ->
     $(@el).html(@template(todo: @model))
+    @input = @$('.edit')
     this
 
   toggleDone: (event) ->
@@ -30,3 +34,19 @@ class Anode.Views.Todo extends Backbone.View
     @model.destroy
       success: ->
         console.log('ss')
+
+  edit: ->
+    $(@el).addClass('editing')
+    @input.focus()
+
+  doEdit: ->
+    value = @input.val()
+    if value==''
+      @model.destroy()
+    else
+      @model.save({content: value})
+      $(@el).removeClass('editing')
+    
+  updateOnEnter: (event) ->
+    if event.keyCode == 13
+      @doEdit()

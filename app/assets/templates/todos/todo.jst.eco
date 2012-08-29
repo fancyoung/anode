@@ -1,3 +1,6 @@
-<input type="checkbox"<%= @todo.get('done') && ('checked="checked"')  %> />
-<%= @todo.get('content') %>
-<a class="destroy" href="#" title="删除">&times;</a>
+<div class="view">
+  <input type="checkbox"<%= @todo.get('done') && ('checked="checked"')  %> />
+  <span class="content"><%= @todo.get('content') %></span>
+  <a class="destroy" href="#" title="删除">&times;</a>
+</div>
+<input class="edit" type="text" value="<%= @todo.get('content') %>" />

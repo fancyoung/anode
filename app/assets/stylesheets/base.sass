@@ -136,3 +136,11 @@ body
       .destroy
         @extend .close
         display: none
+      .edit
+        display: none
+        margin-bottom: 0
+      &.editing
+        .view
+          display: none
+        .edit
+          display: block
