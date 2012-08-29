@@ -17,6 +17,7 @@ class Anode.Views.Todo extends Backbone.View
   
   render: ->
     $(@el).html(@template(todo: @model))
+    $(@el).toggleClass('done', @model.get('done'))
     @input = @$('.edit')
     this
 
