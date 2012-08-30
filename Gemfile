@@ -47,3 +47,7 @@ group :test do
   # Pretty printed test output
   gem 'turn', :require => false
 end
+
+group :development, :test do
+  gem 'jasminerice'
+end
