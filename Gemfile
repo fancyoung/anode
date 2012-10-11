@@ -7,7 +7,8 @@ gem 'bson_ext'
 gem 'compass'
 gem 'mongoid'
 
-gem 'devise', :git => 'git://github.com/plataformatec/devise.git'
+gem 'devise'
+gem 'devise-encryptable'
 
 # carrierwave upload
 gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'
