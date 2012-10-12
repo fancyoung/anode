@@ -1,0 +1,3 @@
+div.view
+  span.content
+    #{@node.get('content')}

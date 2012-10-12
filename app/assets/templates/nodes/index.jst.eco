@@ -1,8 +1,0 @@
-<div id="nodes" class="span6 offset3">
-  <form id="new_node">
-     <input type="text" name="content" id="new_node_content" placeholder="写点东西吧" />
-     <input type="submit" value="+" />
-  </form>
-  <ul id="node_list">
-  </ul>
-</div>

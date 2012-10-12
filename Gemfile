@@ -26,6 +26,8 @@ group :assets do
   gem 'compass-rails'
   gem 'compass_twitter_bootstrap', :git => 'git://github.com/vwall/compass-twitter-bootstrap.git'
 
+  gem 'skim' # Fat-free client-side templates with Slim and CoffeeScript
+
   gem 'uglifier', '>= 1.0.3'
 end
 
