@@ -2,6 +2,7 @@ Anode::Application.routes.draw do
 
   scope "api" do
     resources :todos
+    resources :nodes
   end
 
   devise_for :users
@@ -9,8 +10,6 @@ Anode::Application.routes.draw do
   resources :posts do
     resources :comments
   end
-
-  resources :nodes
 
   get "home/index"
 
@@ -64,7 +63,7 @@ Anode::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   # root :to => 'home#index'
-  root :to => 'nodes#index'
+  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

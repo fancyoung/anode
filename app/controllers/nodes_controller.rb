@@ -3,16 +3,14 @@ require 'open-uri'
 
 class NodesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
+  respond_to :json
 
   def index
     if current_user
+      respond_with Node.latest(current_user)
       @nodes = Node.latest(current_user)
     else
-      @nodes = Node.latest_all
-    end
-    respond_to do |format|
-      format.html
-      format.json { render json: @nodes }
+      respond_with Node.latest_all
     end
   end
 
@@ -35,10 +33,6 @@ class NodesController < ApplicationController
   end
 
   def show
-    @node = Node.find(params[:id])
-    respond_to do |format|
-      format.html { render 'show', layout: false }
-      format.json { render json: @node }
-    end
+    respond_with Node.find(params[:id])
   end
 end

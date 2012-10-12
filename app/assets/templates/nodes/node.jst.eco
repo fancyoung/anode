@@ -1,0 +1,3 @@
+<div class="view">
+  <span class="content"><%= @node.get('content') %></span>
+</div>
