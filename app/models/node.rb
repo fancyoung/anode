@@ -12,7 +12,7 @@ class Node
   referenced_in :creater, :class_name => 'User'
   referenced_in :updater, :class_name => 'User'
 
-  attr_accessible :content, :creater_id, :updater_id
+  attr_accessible :content, :creater_id, :updater_id, :type
 
   scope :latest, ->(user) { where(creater_id: user.id).desc(:created_at) }
   scope :latest_all, desc(:created_at)
@@ -21,6 +21,10 @@ class Node
 
   def type
     self._type && self._type.downcase
+  end
+
+  def as_json(options={})
+    { type: type }.merge super 
   end
 
   class << self
