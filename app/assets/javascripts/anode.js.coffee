@@ -4,9 +4,6 @@ window.Anode =
   Views: {}
   Routers: {}
   init: ->
-    new Anode.Routers.Nodes()
-    new Anode.Routers.Todos()
-    Backbone.history.start()
-
+    console.log 'anode init'
 $(document).ready ->
   Anode.init()

@@ -6,9 +6,9 @@ div.navbar.navbar-fixed-top
         / li class=is_active?("home")
           = link_to '主页', root_path
         li class=is_active?("nodes")
-          = link_to '笔记', '/#!/nodes'
+          = link_to '笔记', nodes_path
         li
-          = link_to '安排', '/#!/todos'
+          = link_to '安排', todos_path
         li class=is_active?("posts")
           = link_to '讨论区', posts_path
       ul.nav.pull-right
