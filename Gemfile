@@ -1,6 +1,7 @@
 source 'http://ruby.taobao.org/'
 
 gem 'rails', '3.2.1'
+gem 'slim', '1.2.2'
 gem 'slim-rails',     :git => 'git://github.com/leogalmeida/slim-rails.git'
 
 gem 'bson_ext'
@@ -26,7 +27,8 @@ group :assets do
   gem 'compass-rails'
   gem 'compass_twitter_bootstrap', :git => 'git://github.com/vwall/compass-twitter-bootstrap.git'
 
-  gem 'skim' # Fat-free client-side templates with Slim and CoffeeScript
+  # Fat-free client-side templates with Slim and CoffeeScript
+  gem 'skim', :git => 'git://github.com/jfirebaugh/skim.git'
 
   gem 'uglifier', '>= 1.0.3'
 end
