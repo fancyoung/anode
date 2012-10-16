@@ -1,7 +1,7 @@
 class Anode.Routers.Todos extends Backbone.Router
   routes:
-    '!/todos': 'index'
-    '!/todos/:id': 'show'
+    '': 'index'
+    '!/:id': 'show'
   initialize: ->
     @collection = new Anode.Collections.Todos()
     @collection.fetch()

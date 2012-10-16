@@ -1,5 +1,8 @@
 Anode::Application.routes.draw do
 
+  get 'nodes' => 'nodes#base_index'
+  get 'todos' => 'todos#base_index'
+
   scope "api" do
     resources :todos
     resources :nodes

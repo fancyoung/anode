@@ -1,7 +1,7 @@
 class Anode.Routers.Nodes extends Backbone.Router
   routes:
-    '!/nodes': 'index'
-    '!/nodes/:id': 'show'
+    '': 'index'
+    '!/:id': 'show'
   initialize: ->
     @collection = new Anode.Collections.Nodes()
     @collection.fetch()

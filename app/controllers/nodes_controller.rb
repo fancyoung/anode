@@ -5,6 +5,10 @@ class NodesController < ApplicationController
   before_filter :authenticate_user!, :except => [:index, :show]
   respond_to :json
 
+  def base_index
+    render 'index'
+  end
+
   def index
     if current_user
       respond_with Node.latest(current_user)
