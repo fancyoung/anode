@@ -1,6 +1,7 @@
-#nodes.span6.offset3
-  form#new_node
-     input type="text" name="content" id="new_node_content" placeholder="写点东西吧"
-     input type="submit"
-       '提交
+#nodes.span9.offset3
+  form#node_form
+    .node_box
+       input.node_input type="text" name="content" id="new_node_content" placeholder="写点东西吧"
+       button.btn.btn-primary type="submit"
+         '提交
   ul#node_list
