@@ -1,5 +1,7 @@
 source 'http://ruby.taobao.org/'
 
+gem 'thin'
+
 gem 'rails', '3.2.1'
 gem 'slim', '1.2.2'
 gem 'slim-rails',     :git => 'git://github.com/leogalmeida/slim-rails.git'
