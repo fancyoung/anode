@@ -1,3 +1,16 @@
-div.view
-  span.content
-    #{@node.get('content')}
+.node_op
+  - if @node.get('type') == 'link'
+    a href=@node.get('content') title='打开链接' target='_blank'
+      i.icon-share-alt
+  - else if @node.get('type') == 'video'
+    a href=@node.get('content') title='打开链接' target='_blank'
+      i.icon-film
+  - else if @node.get('type') == 'text'
+    a href=@node.get('content') title='打开链接' target='_blank'
+      i.icon-file
+  - else if @node.get('type') == 'picture'
+    a href=@node.get('content') title='打开链接' target='_blank'
+      i.icon-picture
+
+.node_content
+  #{@node.get('title') || @node.get('url') || @node.get('content')}
