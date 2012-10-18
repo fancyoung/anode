@@ -11,10 +11,9 @@ class NodesController < ApplicationController
 
   def index
     if current_user
-      respond_with Node.latest(current_user)
-      @nodes = Node.latest(current_user)
+      respond_with Node.mine(current_user)
     else
-      respond_with Node.latest_all
+      respond_with Node.all
     end
   end
 

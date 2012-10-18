@@ -1,0 +1,5 @@
+form#new_node
+  .node_box
+     input.node_input type="text" name="content" id="new_node_content" placeholder="写点东西吧"
+     button.btn.btn-primary type="submit"
+       '提交

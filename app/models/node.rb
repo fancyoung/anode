@@ -14,6 +14,7 @@ class Node
 
   attr_accessible :content, :creater_id, :updater_id, :type
 
+  scope :mine, ->(user) { where(creater_id: user.id) }
   scope :latest, ->(user) { where(creater_id: user.id).desc(:created_at) }
   scope :latest_all, desc(:created_at)
 
