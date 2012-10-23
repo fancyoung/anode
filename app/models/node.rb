@@ -38,7 +38,7 @@ class Node
           timeout(20) do
             url_source = open(url)
             content_type = url_source.content_type
-            puts '>>>>>>'+content_type
+            # puts '>>>>>>'+content_type
             if content_type =~ /^image/ #photo
               node[:title] = file_name url
               node_i = Picture.new(node)
