@@ -24,10 +24,6 @@ class Node
     self._type && self._type.downcase
   end
 
-  def as_json(options={})
-    { type: type }.merge super 
-  end
-
   class << self
     def build_node(node)
       node_i = nil

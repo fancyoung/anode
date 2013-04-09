@@ -33,5 +33,5 @@ class Anode.Views.NodesIndex extends Backbone.View
         $('#new_node')[0].reset()
       error: @handleError
 
-  handleError: () ->
-    alert('error')
+  handleError: (model, error) ->
+    console.log args    
