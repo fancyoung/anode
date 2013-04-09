@@ -11,9 +11,13 @@ class User
   attr_accessible :name, :email, :avatar, :password, :password_confirmation, :remember_me
   
   ## Database authenticatable
-  field :name,              :type => String, :null => false, :default => ""
-  field :email,              :type => String, :null => false, :default => ""
-  field :encrypted_password, :type => String, :null => false, :default => ""
+  field :name,              :type => String, :default => ""
+  field :email,              :type => String, :default => ""
+  field :encrypted_password, :type => String, :default => ""
+
+  validates_presence_of :name
+  validates_presence_of :email
+  validates_presence_of :encrypted_password
 
   ## Recoverable
   field :reset_password_token,   :type => String

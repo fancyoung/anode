@@ -4,7 +4,7 @@ gem 'thin'
 
 gem 'rails', '3.2.1'
 gem 'slim', '1.2.2'
-gem 'slim-rails',     :git => 'git://github.com/leogalmeida/slim-rails.git'
+#gem 'slim-rails',     :git => 'git://github.com/slim-template/slim-rails.git'
 
 gem 'bson_ext'
 gem 'compass'
