@@ -9,8 +9,8 @@ class Node
 
   field :content, :type => String
 
-  referenced_in :creater, :class_name => 'User'
-  referenced_in :updater, :class_name => 'User'
+  belongs_to :creater, :class_name => 'User'
+  belongs_to :updater, :class_name => 'User'
 
   attr_accessible :content, :creater_id, :updater_id, :type
 
