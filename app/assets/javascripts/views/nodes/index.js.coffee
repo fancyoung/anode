@@ -11,7 +11,7 @@ class Anode.Views.NodesIndex extends Backbone.View
 
   render: ->
     $(@el).html(@template())
-    this.renderForm()
+    $(@el).find('#node_form').html(this.renderForm())
     $('#new_node_content').focus()
     @collection.each(@prependNode, this)
     this
@@ -21,8 +21,7 @@ class Anode.Views.NodesIndex extends Backbone.View
     $('#node_list').prepend(view.render().el)
 
   renderForm: ->
-    html = JST['nodes/form']()
-    $('#node_form').html(html)
+    JST['nodes/form']()
 
   createNode: (event) ->
     event.preventDefault()
