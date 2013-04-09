@@ -30,7 +30,7 @@ class NodesController < ApplicationController
       else
         # flash[:error] = @node.errors.values.first.first
         format.html { render partial: 'nodes/node', object: @node } #bug: fix it later
-        format.json { render json: @node.errors.first, status: 'error' }
+        format.json { render json: @node.errors, status: 'error' }
       end
     end
   end
