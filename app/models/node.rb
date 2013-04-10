@@ -12,7 +12,7 @@ class Node
   belongs_to :creater, :class_name => 'User'
   belongs_to :updater, :class_name => 'User'
 
-  attr_accessible :content, :creater_id, :updater_id, :type
+  attr_accessible :content, :creater_id, :updater_id
 
   scope :mine, ->(user) { where(creater_id: user.id) }
   scope :latest, ->(user) { where(creater_id: user.id).desc(:created_at) }
@@ -22,6 +22,10 @@ class Node
 
   def type
     self._type && self._type.downcase
+  end
+
+  def as_json(options={})
+    super(methods: [:type])
   end
 
   class << self
