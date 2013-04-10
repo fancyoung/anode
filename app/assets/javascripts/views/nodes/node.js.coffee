@@ -1,6 +1,7 @@
 class Anode.Views.Node extends Backbone.View
   template: JST['nodes/node']
   tagName: 'li'
+  className: 'node'
 
   events:
     'click .node_content': 'showDetail'

@@ -1,5 +1,4 @@
 .node_op
-  = @node.get('type')
   - if @node.get('type') == 'link'
     a href=@node.get('content') title='打开链接' target='_blank'
       i.icon-share-alt
@@ -14,4 +13,5 @@
       i.icon-picture
 
 .node_content
-  #{@node.get('title') || @node.get('url') || @node.get('content')}
+  a.node_tar href='/nodes/#{@node.get('_id')}'
+    = @node.get('title') || @node.get('url') || @node.get('content')

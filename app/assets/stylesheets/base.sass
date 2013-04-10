@@ -49,28 +49,25 @@ input.node_input
   @include border-radius(6px 0 0 6px)
     
 .nodes
-  @include background_opacity(white, .4)
-  @include border-radius(0 0 6px 6px)
   margin-top: -20px
+  list-style: none
   .node
-    border-top: 1px solid $blue
-    &:first-child
-      border-top: none
+    @include background_opacity(white, .4)
+    @include border-radius(1px)
+    margin: 1px 2px
+    padding: 6px
+    float: left
     &:hover
-      background-color: white
+      @include background_opacity(white, .6)
     a
       color: $gray
-    .row
-      margin-left: 0
-      padding: 0 12px
     .node_op
-      float: left
+      display: inline-block
       padding: 12px 0
     .node_content
-      float: right
+      display: inline-block
     .node_tar
       white-space:nowrap
-      width: 300px
       overflow: hidden
       display: block
       text-decoration: none
