@@ -2,7 +2,7 @@ source 'http://ruby.taobao.org/'
 
 gem 'thin'
 
-gem 'rails', '3.2.1'
+gem 'rails'
 gem 'slim', '1.2.2'
 #gem 'slim-rails',     :git => 'git://github.com/slim-template/slim-rails.git'
 
@@ -28,6 +28,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'compass-rails'
   gem 'compass_twitter_bootstrap', :git => 'git://github.com/vwall/compass-twitter-bootstrap.git'
+  gem 'fontello-rails'
 
   # Fat-free client-side templates with Slim and CoffeeScript
   gem 'skim', :git => 'git://github.com/jfirebaugh/skim.git'
