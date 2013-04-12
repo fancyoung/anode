@@ -26,7 +26,7 @@ class NodesController < ApplicationController
       if @node.save
         # flash[:success] = '发布成功:)'
         format.html { render partial: 'nodes/node', object: @node }
-        format.json { render json: @node, status: :created, location: @node }
+        format.json { render json: @node, status: :created }
       else
         # flash[:error] = @node.errors.values.first.first
         format.html { render partial: 'nodes/node', object: @node } #bug: fix it later
