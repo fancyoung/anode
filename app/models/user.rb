@@ -8,7 +8,7 @@ class User
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :encryptable
 
-  attr_accessible :name, :email, :avatar, :password, :password_confirmation, :remember_me
+  attr_accessible :name, :email, :avatar, :avatar_cache, :password, :password_confirmation, :remember_me
   
   ## Database authenticatable
   field :name,              :type => String, :default => ""
