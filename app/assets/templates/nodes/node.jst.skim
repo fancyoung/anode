@@ -1,16 +1,16 @@
 .node_op
   - if @node.get('type') == 'link'
     a href=@node.get('content') title='打开链接' target='_blank'
-      i.fontello-icon-export
+      i.f-icon-link-ext
   - else if @node.get('type') == 'video'
     a href=@node.get('content') title='打开链接' target='_blank'
-      i.fontello-icon-video
+      i.f-icon-video
   - else if @node.get('type') == 'text'
     a href=@node.get('content') title='打开链接' target='_blank'
-      i.fontello-icon-doc-text
+      i.f-icon-doc-text
   - else if @node.get('type') == 'picture'
     a href=@node.get('content') title='打开链接' target='_blank'
-      i.fontello-icon-picture
+      i.f-icon-picture
 
 .node_content
   a.node_tar href='/nodes/#{@node.get('_id')}'

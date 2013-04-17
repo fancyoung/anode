@@ -28,7 +28,6 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'compass-rails'
   gem 'compass_twitter_bootstrap', :git => 'git://github.com/vwall/compass-twitter-bootstrap.git'
-  gem 'fontello-rails'
 
   # Fat-free client-side templates with Slim and CoffeeScript
   gem 'skim', :git => 'git://github.com/jfirebaugh/skim.git'
@@ -38,6 +37,7 @@ end
 
 gem 'jquery-rails'
 gem 'backbone-on-rails'
+gem 'anodefont', :git => 'git@github.com:fancyoung/anodefont.git'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

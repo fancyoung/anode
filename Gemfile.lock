@@ -17,6 +17,13 @@ GIT
     compass_twitter_bootstrap (2.3.1)
       compass
 
+GIT
+  remote: git@github.com:fancyoung/anodefont.git
+  revision: 10e7a915c558066faf8bbdf2e2fa7851515e206d
+  specs:
+    anodefont (0.0.1)
+      railties (~> 3.1)
+
 GEM
   remote: http://ruby.taobao.org/
   specs:
@@ -101,9 +108,6 @@ GEM
     eventmachine (1.0.3)
     execjs (1.4.0)
       multi_json (~> 1.0)
-    fontello-rails (0.1.0)
-      railties (~> 3.2.9)
-      sass-rails (>= 3.2.5)
     fssm (0.2.10)
     haml (4.0.2)
       tilt
@@ -199,6 +203,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  anodefont!
   backbone-on-rails
   bson_ext
   carrierwave-mongoid
@@ -209,7 +214,6 @@ DEPENDENCIES
   compass_twitter_bootstrap!
   devise
   devise-encryptable
-  fontello-rails
   jasminerice
   jquery-rails
   mongoid

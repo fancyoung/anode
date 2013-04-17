@@ -1,7 +1,8 @@
+@charset "UTF-8"
 @import compass
 $baseFontSize: 15px
 @import compass_twitter_bootstrap
-@import fontello
+@import anodefont
 
 body
   padding-top: 60px
@@ -65,7 +66,10 @@ input.node_input
       color: $gray
     .node_op
       display: inline-block
-      padding: 12px 0
+      padding-right: 6px
+      @include opacity(.3)
+      &:hover
+        @include opacity(1)
     .node_content
       display: inline-block
     .node_tar

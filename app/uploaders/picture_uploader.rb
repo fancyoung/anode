@@ -1,5 +1,8 @@
-class AvatarUploader < CarrierWave::Uploader::Base
+class PictureUploader < CarrierWave::Uploader::Base
   storage :upyun
+
+  self.upyun_bucket = ENV['PICTURE_UPYUN_BUCKET']
+  self.upyun_bucket_domain = ENV['PICTURE_UPYUN_BUCKET_DOMAIN']
 
   def filename
     if original_filename 
