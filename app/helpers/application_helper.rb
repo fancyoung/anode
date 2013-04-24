@@ -10,7 +10,7 @@ module ApplicationHelper
   }
   def get_avatar(user, size)
     if user && user.avatar && user.avatar.url
-      "#{user.avatar.url}-#{size}"
+      "#{user.avatar.url}!#{size}"
     else
       DEFAULT_AVATAR[size.to_sym]
     end
